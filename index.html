@@ -61,10 +61,15 @@ a{color:inherit}
 .reveal.in{opacity:1;transform:none}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;display:grid;grid-template-columns:min(560px,46%) 1fr;grid-template-rows:1fr 1fr;height:clamp(700px,58vw,780px);border-radius:var(--r);overflow:hidden;background:var(--canvas)}
-.hero-text-top{grid-column:1;grid-row:1;padding:40px 40px 0;display:flex;flex-direction:column;justify-content:center}
-.hero-text-bottom{grid-column:1;grid-row:2;padding:0 40px 40px;display:flex;flex-direction:column;justify-content:center}
-.art{grid-column:2;grid-row:1 / -1;position:relative;overflow:hidden;background:var(--teal)}
+.hero{position:relative;display:grid;grid-template-columns:min(560px,46%) 1fr;grid-template-rows:1fr;min-height:clamp(700px,58vw,780px);border-radius:var(--r);overflow:hidden;background:var(--canvas)}
+.hero-text{grid-column:1;grid-row:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:20px;padding:36px 40px}
+.hero-text-top,.hero-text-bottom{display:flex;flex-direction:column}
+.hero-usp{list-style:none;margin:0;padding:0;border-top:1.5px dotted var(--teal-dark);border-bottom:1.5px dotted var(--teal-dark)}
+.hero-usp li{display:grid;grid-template-columns:78px 1fr;gap:12px;padding:12px 0}
+.hero-usp li+li{border-top:1.5px dotted var(--teal-dark)}
+.hero-usp small{font-weight:700;font-size:13px;color:var(--teal-dark);padding-top:3px}
+.hero-usp span{font-size:16px;line-height:1.4}
+.art{grid-column:2;grid-row:1;position:relative;overflow:hidden;background:var(--teal)}
 .art canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .olga{position:absolute;right:4%;bottom:0;height:85%;width:auto;max-width:44%;object-fit:contain;object-position:right bottom;pointer-events:none;user-select:none;z-index:1}
 
@@ -332,7 +337,9 @@ input::placeholder{color:rgba(251,246,238,.78)}
 @media (max-width:880px){
   .wrap{padding:14px 14px 96px}
   section{margin-bottom:56px}
-  .hero{height:auto;display:flex;flex-direction:column;border-radius:0;overflow:visible}
+  .hero{height:auto;min-height:0;display:flex;flex-direction:column;border-radius:0;overflow:visible}
+  .hero-text{display:contents}
+  .hero-usp{order:5;margin-top:22px}
   .nav{position:static;order:1;justify-content:space-between;padding:6px 6px 6px 16px;margin-bottom:18px}
   .hero-text-top{order:2;padding:0;margin-bottom:22px}
   .hero-text-top h1{font-size:clamp(46px,9vw,72px);margin-bottom:14px}
@@ -369,6 +376,7 @@ input::placeholder{color:rgba(251,246,238,.78)}
       <a class="l" href="poleznoe.html">Полезное</a>
       <a class="l" href="diplomy.html">Дипломы</a>
     </nav>
+    <div class="hero-text">
     <div class="hero-text-top">
       <h1 id="h1t">Английский язык<br>для вашего ребёнка</h1>
       <div class="tabs" role="tablist" aria-label="Для кого занятия">
@@ -377,12 +385,18 @@ input::placeholder{color:rgba(251,246,238,.78)}
       </div>
       <div class="chips"><span class="tag">Занятия онлайн и очно</span></div>
     </div>
+    <ul class="hero-usp" aria-label="Коротко об Ольге">
+      <li><small>Степень</small><span>Кандидат педагогических наук, доцент</span></li>
+      <li><small>Опыт</small><span>Преподаю английский с 1998 года, в школе и в университете</span></li>
+      <li><small>Занятия</small><span>Индивидуально, с понятным планом для каждого ученика</span></li>
+    </ul>
     <div class="hero-text-bottom">
       <p class="lead" id="lead">Спокойно, системно и с понятным результатом. Школьная программа и подготовка к ВПР.</p>
       <div class="btns">
         <button class="btn btn-main" type="button" data-quiz-open>Записаться на бесплатную диагностику</button>
       </div>
       <a class="quiz-link" href="#quiz">Проверить уровень знания языка перед диагностикой →</a>
+    </div>
     </div>
 
     <div class="art">
