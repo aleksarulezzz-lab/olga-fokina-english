@@ -17,7 +17,7 @@
 <meta property="og:description" content="Индивидуальные занятия по английскому для школьников и взрослых, онлайн и очно в Биробиджане. Кандидат педагогических наук, преподаю с 1998 года. Диагностика бесплатная.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700;800&family=Manrope:wght@500;600;700&family=Lora:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700;800&family=Manrope:wght@500;600;700&family=Fira+Sans+Condensed:wght@500;600&family=Caveat:wght@600&display=swap" rel="stylesheet">
 <style>
 :root{
   --canvas:#F3E9DA; --card:#FBF6EE; --teal:#2F7F86; --teal-dark:#1F5A60; --teal-soft:#DDEEEF;
@@ -61,14 +61,15 @@ a{color:inherit}
 .reveal.in{opacity:1;transform:none}
 
 /* ---------- HERO ---------- */
-.hero{position:relative;display:grid;grid-template-columns:min(560px,46%) 1fr;grid-template-rows:1fr;min-height:clamp(700px,58vw,780px);border-radius:var(--r);overflow:hidden;background:var(--canvas)}
-.hero-text{grid-column:1;grid-row:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:16px;padding:32px 40px}
+.hero{position:relative;display:grid;grid-template-columns:min(560px,46%) 1fr;grid-template-rows:auto 1fr;min-height:clamp(660px,50vw,740px);border-radius:var(--r);overflow:hidden;background:var(--canvas)}
+.hero-title{grid-column:1 / -1;grid-row:1;margin:0;padding:36px 48px 20px;font-size:clamp(40px,4.8vw,68px);line-height:1.02}
+.hero-text{grid-column:1;grid-row:2;display:flex;flex-direction:column;justify-content:space-evenly;gap:16px;padding:8px 40px 36px 48px}
 .hero-text-top,.hero-text-bottom{display:flex;flex-direction:column}
 @media (min-width:881px){
   .hero-text-top,.hero-text-bottom{display:contents}
-  .hero-text-top h1,.hero-text-top .tabs,.lead{margin-bottom:0}
+  .hero .hero-text-top .tabs,.hero .lead,.hero .hero-cta .btns{margin-bottom:0}
 }
-.art{grid-column:2;grid-row:1;position:relative;overflow:hidden;background:var(--teal)}
+.art{grid-column:2;grid-row:2;margin:0 28px 28px 0;border-radius:var(--r);position:relative;overflow:hidden;background:var(--teal)}
 .art canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
 .olga{position:absolute;right:4%;bottom:0;height:85%;width:auto;max-width:44%;object-fit:contain;object-position:right bottom;pointer-events:none;user-select:none;z-index:1}
 
@@ -126,10 +127,31 @@ a{color:inherit}
 .runner-wrap.reverse{animation-direction:reverse}
 @media (prefers-reduced-motion:reduce){ .runners{display:none} }
 
-.hero-text-top h1{font-size:clamp(36px,3.4vw,58px);margin-bottom:20px}
-.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-start;position:relative}
+.chips .tag{font-size:18px;padding:13px 22px}
+.seg-hint{display:flex;align-items:flex-start;gap:2px;font:600 22px/1 "Caveat","Segoe Script","Bradley Hand",cursive;color:var(--terra-dark);transform:rotate(-2deg);transition:opacity .4s ease,visibility .4s ease}
+.seg-hint svg{flex:none}
+.seg-hint span{max-width:150px;padding-top:14px;opacity:0;animation:sh-fade .6s ease forwards 1.2s}
+.seg-hint path{fill:none;stroke:var(--terra);stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1;animation:sh-loop 4s ease-in-out infinite 1s}
+.seg-hint .sh-head{animation-name:sh-loop-head}
+@keyframes sh-loop{0%{stroke-dashoffset:1;opacity:1}30%{stroke-dashoffset:0;opacity:1}78%{stroke-dashoffset:0;opacity:1}90%{stroke-dashoffset:0;opacity:0}91%{stroke-dashoffset:1;opacity:0}100%{stroke-dashoffset:1;opacity:1}}
+@keyframes sh-loop-head{0%,30%{stroke-dashoffset:1;opacity:1}40%{stroke-dashoffset:0;opacity:1}78%{stroke-dashoffset:0;opacity:1}90%{stroke-dashoffset:0;opacity:0}91%{stroke-dashoffset:1;opacity:0}100%{stroke-dashoffset:1;opacity:1}}
+@keyframes sh-fade{to{opacity:1}}
+.hero.seg-chosen .seg-hint{opacity:0;visibility:hidden}
+@media (min-width:881px) and (max-width:1179px){.seg-hint{display:none}}
+@media (min-width:1180px){.seg-hint{position:absolute;right:4px;top:-30px}}
+@media (max-width:880px){.seg-hint{order:-1;flex-basis:100%;margin:-2px 0 0 14px;font-size:20px}.seg-hint svg{width:44px;height:40px}.seg-hint span{max-width:230px;padding-top:8px}.hero.seg-chosen .seg-hint{display:none}}
+@media (prefers-reduced-motion:reduce){.seg-hint path{animation:none;stroke-dashoffset:0}.seg-hint span{animation:none;opacity:1}}
 .hero-text-top .tabs{margin-bottom:16px}
-.lead{font:500 clamp(24px,2.3vw,31px)/1.35 "Lora",Georgia,"Times New Roman",serif;margin-bottom:18px;max-width:none;color:var(--ink)}
+.lead{font:500 clamp(24px,2.2vw,30px)/1.3 "Fira Sans Condensed","Fira Sans Extra Condensed","Arial Narrow",sans-serif;margin-bottom:18px;max-width:none;color:var(--ink)}
+.pick-label{font:600 15px/1.3 var(--body);color:var(--muted);margin:0 0 20px}
+.pick-row{display:flex;gap:10px;flex-wrap:wrap}
+.pick-btn{font:700 16px/1 var(--body);padding:13px clamp(14px,1.5vw,20px);border-radius:800px;border:1.5px solid var(--teal-dark);background:transparent;color:var(--teal-dark);cursor:pointer;transition:background-color .18s ease,color .18s ease}
+.pick-btn:hover{background:var(--teal-dark);color:#fff}
+.pick-tag{font:600 18px/1 var(--body);padding:13px 22px;border-radius:800px;background:var(--teal-soft);color:var(--teal-dark)}
+.hero .pick-adult{display:none}
+.hero.is-adult .pick-kid{display:none}
+.hero.is-adult .pick-adult{display:block}
 .btns{display:grid;gap:10px;margin-bottom:14px}
 .quiz-link{display:inline-block;padding:11px 0;color:var(--teal-dark);font-weight:700;font-size:15px;text-underline-offset:4px}
 .price{font-size:14px;color:var(--muted)}
@@ -197,6 +219,7 @@ a{color:inherit}
 .story .tag{align-self:flex-start}
 .story-teaser{margin:0;font-size:16px;line-height:1.5;font-style:italic;color:var(--teal-dark)}
 
+body.seg-adult #stories .grid3>.story:nth-child(3){order:-1}
 .case-carousel{border-radius:calc(var(--r) - 12px);overflow:hidden;background:var(--canvas);margin:0 -1px;display:flex;flex-direction:column}
 .case-frame{position:relative;aspect-ratio:4/5}
 .case-frame img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity .18s ease}
@@ -279,6 +302,11 @@ input::placeholder{color:rgba(251,246,238,.78)}
 .about-links{display:grid}
 
 .sticky-bar{display:none}
+@media (min-width:881px){
+  .sticky-bar{display:block;position:fixed;left:50%;bottom:22px;transform:translate(-50%,24px);opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease;z-index:20}
+  .sticky-bar.show{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+  .sticky-bar .btn{box-shadow:0 10px 28px rgba(31,90,96,.3)}
+}
 
 /* ---------- КВИЗ ---------- */
 .quiz-modal{display:none;position:fixed;inset:0;z-index:100}
@@ -316,10 +344,15 @@ input::placeholder{color:rgba(251,246,238,.78)}
 .qz-field{display:block;width:100%;border:1.5px solid var(--teal-soft);border-radius:12px;padding:12px 14px;font:600 15px/1.3 var(--body);margin-bottom:10px;background:#fff;box-sizing:border-box;box-shadow:0 1px 3px rgba(31,90,96,.06)}
 .qz-field::placeholder{color:var(--muted);font-weight:500}
 .qz-field:focus{outline:none;border-color:var(--teal)}
+.quiz-box input.qz-field{width:100%;background:#fff;color:var(--ink);border:1.5px solid var(--teal-soft);border-radius:12px;padding:13px 16px;font:600 16px/1.3 var(--body)}
 .qz-check{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:13px;line-height:1.45;color:var(--muted);cursor:pointer}
 .qz-check input{margin-top:3px;flex:none}
 .qz-check a{color:var(--teal-dark)}
-.qz-error{color:var(--terra);font-size:13px;margin:-4px 0 10px}
+.qz-lbl{font-size:13px;font-weight:700;color:var(--teal-dark);margin:0 0 8px}
+.qz-grades{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 14px}
+.qz-chip{font:600 14px/1 var(--body);padding:11px 14px;border-radius:99px;border:1.5px solid var(--teal-soft);background:#fff;color:var(--teal-dark);cursor:pointer}
+.qz-chip.sel{background:var(--teal-dark);border-color:var(--teal-dark);color:#fff}
+.qz-error{color:var(--terra-dark);font-size:14px;font-weight:700;margin:-4px 0 12px}
 
 /* ---------- tablet / mobile ---------- */
 @media (max-width:1000px){ .nav .l,.nav .sep{display:none} }
@@ -336,11 +369,12 @@ input::placeholder{color:rgba(251,246,238,.78)}
   .hero{height:auto;min-height:0;display:flex;flex-direction:column;border-radius:0;overflow:visible}
   .hero-text{display:contents}
   .nav{position:static;order:1;justify-content:space-between;padding:6px 6px 6px 16px;margin-bottom:18px}
-  .hero-text-top{order:2;padding:0;margin-bottom:22px}
-  .hero-text-top h1{font-size:clamp(46px,9vw,72px);margin-bottom:24px}
+  .hero-title{order:2;padding:0;margin-bottom:24px;font-size:clamp(46px,11vw,72px)}
+  .hero-text-top{order:3;padding:0;margin-bottom:22px}
   .hero-text-top .tabs{margin-bottom:24px}
-  .hero-text-bottom{order:4;padding:0;justify-content:flex-start;margin-top:22px}
-  .art{order:3;height:clamp(380px,52vw,460px);border-radius:var(--r)}
+  .hero-text-bottom{order:5;padding:0;justify-content:flex-start;margin-top:22px}
+  .hero-pick{margin-bottom:22px}
+  .art{order:4;margin:0;height:clamp(380px,52vw,460px);border-radius:var(--r)}
   .olga{right:6%;height:94%;max-width:56%}
   .sec-h{align-items:flex-start}
   .step-c b{font-size:44px}
@@ -371,22 +405,43 @@ input::placeholder{color:rgba(251,246,238,.78)}
       <a class="l" href="poleznoe.html">Полезное</a>
       <a class="l" href="diplomy.html">Дипломы</a>
     </nav>
+    <h1 class="hero-title" id="h1t">Английский язык для вашего <span class="hl">ребёнка</span></h1>
     <div class="hero-text">
     <div class="hero-text-top">
-      <h1 id="h1t">Английский язык<br>для вашего ребёнка</h1>
       <div class="tabs" role="tablist" aria-label="Для кого занятия">
         <button class="on" role="tab" aria-selected="true" data-seg="kid">Для школьника</button>
         <button role="tab" aria-selected="false" data-seg="adult">Для взрослого</button>
       </div>
-      <div class="chips"><span class="tag">Занятия онлайн и очно</span></div>
+      <div class="chips"><span class="tag">Занятия онлайн и очно</span>
+        <div class="seg-hint" aria-hidden="true">
+          <svg viewBox="0 0 64 58" width="62" height="56"><path class="sh-line" pathLength="1" d="M33 55 C 25 44, 38 34, 30 22 C 28 17, 26 12, 25 8"/><path class="sh-head" pathLength="1" d="M25 8 L 15 19 M25 8 L 36 16"/></svg>
+          <span>Выберите нужную для вас версию сайта</span>
+        </div>
+      </div>
     </div>
     <div class="hero-text-bottom">
       <p class="lead" id="lead">Спокойно, системно и с понятным результатом. Школьная программа и подготовка к ВПР.</p>
+      <div class="hero-pick">
+        <div class="pick-kid">
+          <p class="pick-label">Выберите класс ребёнка, чтобы записаться на диагностику</p>
+          <div class="pick-row">
+            <button class="pick-btn" type="button" data-quiz-open data-quiz-grade="0">1–4 класс</button>
+            <button class="pick-btn" type="button" data-quiz-open data-quiz-grade="1">5–9 класс</button>
+            <button class="pick-btn" type="button" data-quiz-open data-quiz-grade="2">10–11 класс</button>
+          </div>
+        </div>
+        <div class="pick-adult">
+          <div class="pick-row">
+            <span class="pick-tag">Работа</span>
+            <span class="pick-tag">Путешествия</span>
+            <span class="pick-tag">Саморазвитие</span>
+          </div>
+        </div>
+      </div>
       <div class="hero-cta">
         <div class="btns">
           <button class="btn btn-main" type="button" data-quiz-open>Записаться на бесплатную диагностику</button>
         </div>
-        <a class="quiz-link" href="#quiz">Проверить уровень знания языка перед диагностикой →</a>
       </div>
     </div>
     </div>
@@ -456,7 +511,7 @@ input::placeholder{color:rgba(251,246,238,.78)}
       <article class="card story">
         <span class="tag">Дана, 4–5 класс</span>
         <div class="case-carousel" data-carousel data-base="stories-carousels/dana/dana_case_" data-count="6">
-          <div class="case-frame"><img data-slide src="stories-carousels/dana/dana_case_1.jpg" alt="Кейс ученицы Даны, слайд 1 из 6" loading="lazy"></div>
+          <div class="case-frame"><img data-slide src="stories-carousels/dana/dana_case_1.jpg?v=3" alt="Кейс ученицы Даны, слайд 1 из 6" loading="lazy"></div>
           <div class="case-controls"><button class="case-nav prev" type="button" aria-label="Предыдущий слайд">‹</button><div class="case-dots" data-dots></div><button class="case-nav next" type="button" aria-label="Следующий слайд">›</button></div>
         </div>
         <p class="story-teaser">От страха и «2» по английскому — до мечты стать переводчиком.</p>
@@ -464,7 +519,7 @@ input::placeholder{color:rgba(251,246,238,.78)}
       <article class="card story">
         <span class="tag">Миша, 1–4 класс</span>
         <div class="case-carousel" data-carousel data-base="stories-carousels/misha/misha_case_" data-count="6">
-          <div class="case-frame"><img data-slide src="stories-carousels/misha/misha_case_1.jpg" alt="Кейс ученика Миши, слайд 1 из 6" loading="lazy"></div>
+          <div class="case-frame"><img data-slide src="stories-carousels/misha/misha_case_1.jpg?v=3" alt="Кейс ученика Миши, слайд 1 из 6" loading="lazy"></div>
           <div class="case-controls"><button class="case-nav prev" type="button" aria-label="Предыдущий слайд">‹</button><div class="case-dots" data-dots></div><button class="case-nav next" type="button" aria-label="Следующий слайд">›</button></div>
         </div>
         <p class="story-teaser">От нуля перед 1 классом — до победы в конкурсе по английскому.</p>
@@ -472,7 +527,7 @@ input::placeholder{color:rgba(251,246,238,.78)}
       <article class="card story">
         <span class="tag">Дмитрий, взрослый студент</span>
         <div class="case-carousel" data-carousel data-base="stories-carousels/dmitry/dmitry_case_" data-count="6">
-          <div class="case-frame"><img data-slide src="stories-carousels/dmitry/dmitry_case_1.jpg" alt="Кейс ученика Дмитрия, слайд 1 из 6" loading="lazy"></div>
+          <div class="case-frame"><img data-slide src="stories-carousels/dmitry/dmitry_case_1.jpg?v=3" alt="Кейс ученика Дмитрия, слайд 1 из 6" loading="lazy"></div>
           <div class="case-controls"><button class="case-nav prev" type="button" aria-label="Предыдущий слайд">‹</button><div class="case-dots" data-dots></div><button class="case-nav next" type="button" aria-label="Следующий слайд">›</button></div>
         </div>
         <p class="story-teaser">От уровня A1 — до уверенного B2 и аспирантуры.</p>
@@ -483,7 +538,7 @@ input::placeholder{color:rgba(251,246,238,.78)}
   <!-- 3. Отзывы -->
   <section id="reviews">
     <div class="sec-h">
-      <h2>Что говорят родители и ученики</h2>
+      <h2 id="reviews-h">Что говорят родители и ученики</h2>
       <button class="rev-more" type="button" id="reviews-more">Все отзывы →</button>
     </div>
     <div class="grid3" id="reviews-grid">
@@ -553,12 +608,12 @@ input::placeholder{color:rgba(251,246,238,.78)}
       <article class="card step-c">
         <b>02</b>
         <h3>Проверка уровня знания языка</h3>
-        <p>Короткие задания покажут, что уже получается и что стоит подтянуть — прямо сейчас, ниже.</p>
+        <p>Короткие задания покажут, что уже получается и что стоит подтянуть.</p>
       </article>
       <article class="card step-c">
         <b>03</b>
-        <h3>План занятий</h3>
-        <p>Составим понятный план и договоримся о формате: онлайн или очно.</p>
+        <h3>Рекомендации и план</h3>
+        <p>Скажу, на чём сосредоточиться, сколько времени это может занять и как интенсивно заниматься. Составим план и договоримся о формате: онлайн или очно.</p>
       </article>
     </div>
   </section>
@@ -567,7 +622,7 @@ input::placeholder{color:rgba(251,246,238,.78)}
   <section id="quiz">
     <div class="card dark quizc">
       <h2>Проверить уровень знания языка</h2>
-      <p>Ответьте на несколько вопросов, это займёт около 5 минут. Результат покажет, с чего начать.</p>
+      <p>Ответьте на несколько вопросов за 3 минуты и получите быстрый срез вашего уровня знания английского языка. Развёрнутые рекомендации по срокам, фокусу и интенсивности занятий вы получите на бесплатной диагностике.</p>
       <button class="btn btn-cream" type="button" data-quiz-open>Пройти тест →</button>
     </div>
   </section>
@@ -605,16 +660,16 @@ input::placeholder{color:rgba(251,246,238,.78)}
         <li>
           <b>01</b>
           <div>
-            <h3>Проверьте уровень знания языка</h3>
-            <p>Ответьте на несколько вопросов, это займёт около 5 минут.</p>
+            <h3>Пройдите короткий тест</h3>
+            <p>Тест займёт около 3 минут и даст быстрый срез вашего уровня знания английского языка.</p>
             <button class="btn btn-cream" type="button" data-quiz-open>Пройти тест</button>
           </div>
         </li>
         <li>
           <b>02</b>
           <div>
-            <h3>Запишитесь на бесплатную диагностику</h3>
-            <p>В конце теста оставьте контакты — я свяжусь с вами, чтобы договориться о времени.</p>
+            <h3>Оставьте контакты для диагностики</h3>
+            <p>После теста укажите имя, телефон и email, и в ближайшее время я свяжусь с вами, чтобы договориться о времени. На диагностике я дам развёрнутую обратную связь: на чём сосредоточиться, сколько времени это может занять и как интенсивно заниматься.</p>
             <button class="btn btn-main" type="button" data-quiz-open>Записаться на бесплатную диагностику</button>
           </div>
         </li>
@@ -689,8 +744,9 @@ input::placeholder{color:rgba(251,246,238,.78)}
    в блоке цен («Как проходит первый месяц…») и первый признак хорошего репетитора общие для обоих. */
 var COPY={
   kid:{
-    h1:'Английский язык<br>для вашего ребёнка',
+    h1:'Английский язык для вашего <span class="hl">ребёнка</span>',
     lead:'Спокойно, системно и с понятным результатом. Школьная программа и подготовка к ВПР.',
+    reviews:'Что говорят родители и ученики',
     about:'На моих занятиях много живого общения на английском и погружения в язык. Наглядные материалы и система поощрений поддерживают интерес, а родителям я подсказываю, как закрепить материал дома.',
     link1text:'7 методов для младших школьников: как закреплять английский дома →',
     link1href:'7-metodov-mladshie.html',
@@ -699,8 +755,9 @@ var COPY={
     link2href:'pamyatka-roditelyam.html'
   },
   adult:{
-    h1:'Английский язык<br>для вас',
-    lead:'Без давления и с понятным планом: для работы, путешествий и саморазвития.',
+    h1:'Английский язык для <span class="hl">вас</span>',
+    lead:'Вы начнёте понимать английскую речь на слух и говорить без страха ошибки. Занятия строятся под вашу цель и идут без давления.',
+    reviews:'Что говорят мои клиенты',
     about:'На моих занятиях много живого общения на английском и практики, близкой к реальным ситуациям. Учитываю ваш уровень, цель и темп — будь то работа, поездки или общий интерес к языку.',
     link1text:'Как быстро освежить английский после перерыва →',
     link1href:'posle-pereryva.html',
@@ -723,6 +780,9 @@ function setSeg(s){
   chatLinks(s);
   var runners=document.getElementById('runners');
   if(runners) runners.classList.toggle('seg-adult', s==='adult');
+  var heroEl=document.getElementById('top'); if(heroEl) heroEl.classList.toggle('is-adult', s==='adult');
+  document.body.classList.toggle('seg-adult', s==='adult');
+  var rh=document.getElementById('reviews-h'); if(rh) rh.textContent=c.reviews;
   document.querySelectorAll('[data-seg]').forEach(function(b){
     var on=b.dataset.seg===s;b.classList.toggle('on',on);b.setAttribute('aria-selected',on?'true':'false');
   });
@@ -734,7 +794,7 @@ function setSeg(s){
   var l2=document.getElementById('price-link2'); l2.textContent=c.link2text; l2.href=c.link2href;
 }
 document.querySelectorAll('[data-seg]').forEach(function(b){
-  b.addEventListener('click',function(){setSeg(b.dataset.seg)});
+  b.addEventListener('click',function(){setSeg(b.dataset.seg); var h=document.getElementById('top'); if(h) h.classList.add('seg-chosen');});
 });
 setSeg('kid');
 
@@ -853,8 +913,9 @@ setSeg('kid');
   for(var i=0;i<3;i++){
     (function(idx){
       var v = document.createElement('video');
-      v.src = 'walk-loop.mp4'; v.muted = true; v.loop = true; v.playsInline = true; v.preload = 'auto';
-      v.style.display = 'none';
+      v.src = 'walk-loop.mp4'; v.muted = true; v.defaultMuted = true; v.loop = true; v.playsInline = true; v.preload = 'auto'; v.autoplay = true;
+      v.setAttribute('playsinline',''); v.setAttribute('muted','');
+      v.style.cssText = 'position:fixed;left:0;top:0;width:2px;height:2px;opacity:0;pointer-events:none;z-index:-1';
       document.body.appendChild(v);
       v.addEventListener('loadedmetadata', function(){
         v.currentTime = (idx * v.duration/3) || 0;
@@ -864,6 +925,10 @@ setSeg('kid');
     })(i);
   }
   var videoOf = canvases.map(function(cv){ return videos[+cv.dataset.idx || 0]; });
+  /* Safari иногда не запускает видео без жеста пользователя: запускаем при первом касании */
+  ['click','touchstart','keydown','scroll'].forEach(function(ev){
+    window.addEventListener(ev,function(){ videos.forEach(function(v){ if(v.paused) v.play().catch(function(){}); }); },{passive:true,once:true});
+  });
 
   var runnersEl = document.getElementById('runners');
   function activeGroup(){ return runnersEl && runnersEl.classList.contains('seg-adult') ? 'adult' : 'kid'; }
@@ -1052,19 +1117,31 @@ setSeg('kid');
     {q:'Not only ___ late, but he also forgot the documents.',options:['he was','was he','he is','is he'],correct:1}
   ];
 
+  var KID_SETS=[[Q_KID_1_4,'1–4 класс','1–4 класса'],[Q_KID_5_9,'5–9 класс','5–9 класса'],[Q_KID_10_11,'10–11 класс','10–11 класса']];
+
   var modal=document.getElementById('quizModal');
   var screen=document.getElementById('quizScreen');
   if(!modal||!screen) return;
   var state={};
+  var lead={};
+  function pad(n){ return (n<10?'0':'')+n; }
+  function stamp(){
+    var d=new Date();
+    return pad(d.getDate())+'.'+pad(d.getMonth()+1)+'.'+d.getFullYear()+' '+pad(d.getHours())+':'+pad(d.getMinutes());
+  }
+  var CONSENT_TEXT='Согласен на получение писем с полезными материалами по английскому';
 
   function currentSeg(){
     var b=document.querySelector('[data-seg].on');
     return b?b.dataset.seg:'kid';
   }
 
-  function openQuiz(){
-    state={};
-    renderWho();
+  function openQuiz(preset){
+    state={}; lead={who:'kid'};
+    preset=preset||{};
+    lead.who=preset.who||'kid';
+    if(lead.who==='kid'&&preset.grade!==undefined) lead.grade=preset.grade;
+    renderGate();
     modal.classList.add('open');
     modal.setAttribute('aria-hidden','false');
     document.body.style.overflow='hidden';
@@ -1075,42 +1152,37 @@ setSeg('kid');
     document.body.style.overflow='';
   }
 
-  function renderWho(){
+  function setWho(who,grade){
+    lead.who=who; lead.grade=(who==='kid'?grade:undefined);
+    if(typeof setSeg==='function') setSeg(who);
+  }
+  function beginTest(){
+    if(lead.who==='adult') startQuiz('adult',Q_ADULT,'Для себя');
+    else { var kp=KID_SETS[lead.grade]; startQuiz('kid',kp[0],kp[1],kp[2],lead.grade); }
+  }
+  function renderGate(forceChoice){
+    var kid=lead.who!=='adult';
+    var choose=forceChoice||(kid&&lead.grade===undefined);
     screen.innerHTML=
-      '<div class="qz-eyebrow">Уровень знания языка</div>'+
-      '<h3 class="qz-h">Для кого этот тест?</h3>'+
-      '<p class="qz-p">Перед тем как записаться на бесплатную диагностику, пройдите небольшой тест. Он поможет определить ваш уровень и понять, с чего начать, чтобы не тратить на это время диагностики. Ответьте на несколько вопросов, это займёт около 5 минут.</p>'+
-      '<button class="qz-big" type="button" data-who="kid">Для ребёнка<small>Спросим класс и подберём вопросы</small></button>'+
-      '<button class="qz-big" type="button" data-who="adult">Для себя<small>Общие вопросы по грамматике и лексике</small></button>'+
-      '<div class="qz-foot">Пусть ребёнок пройдёт тест сам, а результат вы увидите вместе.</div>';
-    screen.querySelectorAll('[data-who]').forEach(function(b){
-      b.addEventListener('click',function(){
-        if(b.dataset.who==='kid') renderGrade();
-        else startQuiz('adult',Q_ADULT,'Для себя');
-      });
+      '<div class="qz-eyebrow">Бесплатная диагностика</div>'+
+      '<h3 class="qz-h">Сначала пройдите короткий тест</h3>'+
+      '<p class="qz-p">Тест займёт около 3 минут и даст быстрый срез вашего уровня знания английского языка. На бесплатной диагностике я дам развёрнутую обратную связь: на чём сосредоточиться, сколько времени это может занять и как интенсивно заниматься.</p>'+
+      '<p class="qz-p">После теста вы оставите контакты, и в ближайшее время я свяжусь с вами, чтобы договориться о времени диагностики.</p>'+
+      (choose
+        ? '<div class="qz-lbl">Выберите класс ребёнка</div><div class="qz-grades">'+KID_SETS.map(function(p,i){return '<button type="button" class="qz-chip" data-g="'+i+'">'+p[1]+'</button>';}).join('')+'</div>'+
+          '<div class="qz-lbl">Или выберите тест для взрослого</div><div class="qz-grades"><button type="button" class="qz-chip" data-adult>Для взрослого</button></div>'
+        : '<div class="qz-actions"><button class="btn btn-main" type="button" data-begin>'+(kid?'Начать тест для '+KID_SETS[lead.grade][2]:'Начать тест для взрослого')+'</button></div>'+
+          '<button class="qz-back" type="button" data-change>'+(kid?'Выбрать другой класс или тест для взрослого':'Выбрать тест для школьника')+'</button>');
+    screen.querySelectorAll('[data-g]').forEach(function(c){
+      c.addEventListener('click',function(){ setWho('kid',+c.dataset.g); beginTest(); });
     });
+    var ad=screen.querySelector('[data-adult]'); if(ad) ad.addEventListener('click',function(){ setWho('adult'); beginTest(); });
+    var bg=screen.querySelector('[data-begin]'); if(bg) bg.addEventListener('click',beginTest);
+    var ch=screen.querySelector('[data-change]'); if(ch) ch.addEventListener('click',function(){ renderGate(true); });
   }
 
-  function renderGrade(){
-    screen.innerHTML=
-      '<div class="qz-eyebrow">Уровень знания языка</div>'+
-      '<h3 class="qz-h">В каком классе учится ребёнок?</h3>'+
-      '<p class="qz-p">Подберём вопросы по программе.</p>'+
-      '<button class="qz-big" type="button" data-grade="0">1–4 класс</button>'+
-      '<button class="qz-big" type="button" data-grade="1">5–9 класс</button>'+
-      '<button class="qz-big" type="button" data-grade="2">10–11 класс</button>'+
-      '<button class="qz-back" type="button" data-back>← Назад</button>';
-    var sets=[[Q_KID_1_4,'1–4 класс','1–4 класса'],[Q_KID_5_9,'5–9 класс','5–9 класса'],[Q_KID_10_11,'10–11 класс','10–11 класса']];
-    screen.querySelectorAll('[data-grade]').forEach(function(b){
-      b.addEventListener('click',function(){
-        var pair=sets[+b.dataset.grade];
-        startQuiz('kid',pair[0],pair[1],pair[2]);
-      });
-    });
-    screen.querySelector('[data-back]').addEventListener('click',renderWho);
-  }
-
-  function startQuiz(who,questions,label,labelGen){
+  function startQuiz(who,questions,label,labelGen,gradeIdx){
+    lead.who=who; if(gradeIdx!==undefined) lead.grade=gradeIdx;
     state={who:who,label:label,labelGen:labelGen||label,set:questions,qIndex:0,correct:0,total:questions.length,answers:new Array(questions.length).fill(null)};
     renderQuestion();
   }
@@ -1193,24 +1265,38 @@ setSeg('kid');
         '<div class="qz-level">'+level+'</div>'+
         '<div class="qz-list"><b>Уже получается:</b> '+texts[tier].already+'.<br><b>Подтянем:</b> '+texts[tier].improve+'.</div>'+
       '</div>'+
-      '<p class="qz-disc">Это короткий тест. Точнее уровень покажет бесплатная диагностика.</p>'+
+      '<p class="qz-disc">Тест даёт быстрый срез вашего уровня знания английского языка. На бесплатной диагностике я дам развёрнутую обратную связь: на чём сосредоточиться, сколько времени это может занять и как интенсивно заниматься.</p>'+
       '<div class="qz-actions"><button class="btn btn-main" type="button" data-lead-open>Записаться на бесплатную диагностику</button></div>'+
       '<button class="qz-back" type="button" data-restart>Пройти ещё раз</button>';
     screen.querySelector('[data-lead-open]').addEventListener('click',renderLeadForm);
-    screen.querySelector('[data-restart]').addEventListener('click',renderWho);
+    screen.querySelector('[data-restart]').addEventListener('click',function(){ renderGate(); });
+  }
+
+  function chatOpen(msg){
+    /* Прямо сейчас CHAT='#': заглушка до готовности бота в MAX. Когда появится
+       реальная ссылка, формат передачи текста (?text=...) может потребовать
+       проверки под синтаксис диплинков MAX. */
+    if(CHAT==='#') return;
+    window.open(CHAT+'?text='+encodeURIComponent(msg),'_blank','noopener');
+  }
+  function forLines(){
+    var out=[];
+    if(lead.who==='adult'){ out.push('Для: взрослый'); }
+    else { out.push('Для: школьник'); if(lead.grade!==undefined) out.push('Класс: '+KID_SETS[lead.grade][1]); }
+    return out;
   }
 
   function renderLeadForm(){
     screen.innerHTML=
       '<div class="qz-eyebrow">Остался последний шаг</div>'+
       '<h3 class="qz-h">Оставьте контакты</h3>'+
-      '<p class="qz-p">Я получу ваши данные и результат теста и свяжусь с вами, чтобы договориться о времени занятия.</p>'+
-      '<input class="qz-field" type="text" placeholder="Имя" data-f="name" maxlength="100" autocomplete="name">'+
-      '<input class="qz-field" type="tel" placeholder="Телефон" data-f="phone" maxlength="30" autocomplete="tel">'+
-      '<input class="qz-field" type="email" placeholder="Email (необязательно)" data-f="email" maxlength="150" autocomplete="email">'+
+      '<p class="qz-p">Я получу ваши данные и результат теста и в ближайшее время свяжусь с вами, чтобы договориться о времени бесплатной диагностики.</p>'+
+      '<input class="qz-field" type="text" placeholder="Имя" data-f="name" maxlength="100" autocomplete="name" spellcheck="false">'+
+      '<input class="qz-field" type="tel" placeholder="Телефон" data-f="phone" maxlength="30" autocomplete="tel" spellcheck="false">'+
+      '<input class="qz-field" type="email" placeholder="Email" data-f="email" maxlength="150" autocomplete="email" spellcheck="false">'+
       '<label class="qz-check"><input type="checkbox" data-f="age"><span>Подтверждаю, что мне есть 18 лет, либо эту форму заполняет родитель или законный представитель несовершеннолетнего</span></label>'+
       '<label class="qz-check"><input type="checkbox" data-f="consent"><span>Даю согласие на обработку персональных данных в соответствии с <a href="#" target="_blank" rel="noopener noreferrer">Политикой обработки персональных данных</a></span></label>'+
-      '<label class="qz-check"><input type="checkbox" data-f="promo"><span>Хочу получать письма с полезными материалами по английскому</span></label>'+
+      '<label class="qz-check"><input type="checkbox" data-f="promo"><span>'+CONSENT_TEXT+'</span></label>'+
       '<div class="qz-error" data-error style="display:none"></div>'+
       '<div class="qz-actions"><button class="btn btn-main" type="button" data-submit>Отправить заявку</button></div>'+
       '<button class="qz-back" type="button" data-back-result>← Назад к результату</button>';
@@ -1223,37 +1309,50 @@ setSeg('kid');
       var consent=screen.querySelector('[data-f="consent"]').checked;
       var promo=screen.querySelector('[data-f="promo"]').checked;
       var errEl=screen.querySelector('[data-error]');
-      if(!name||!phone){ errEl.textContent='Укажите имя и телефон.'; errEl.style.display='block'; return; }
-      if(!age){ errEl.textContent='Нужно подтвердить возраст — см. чекбокс выше.'; errEl.style.display='block'; return; }
-      if(!consent){ errEl.textContent='Нужно согласие на обработку персональных данных.'; errEl.style.display='block'; return; }
+      function fail(msg,sel){
+        errEl.textContent=msg; errEl.style.display='block';
+        var f=screen.querySelector(sel); if(f&&f.focus) f.focus();
+        errEl.scrollIntoView({block:'nearest',behavior:'smooth'});
+      }
+      if(!name){ fail('Укажите имя.','[data-f="name"]'); return; }
+      if(!phone){ fail('Укажите телефон.','[data-f="phone"]'); return; }
+      if(!email){ fail('Укажите email.','[data-f="email"]'); return; }
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ fail('Проверьте email: адрес указан неверно.','[data-f="email"]'); return; }
+      if(!age){ fail('Нужно подтвердить возраст: отметьте первую галочку.','[data-f="age"]'); return; }
+      if(!consent){ fail('Нужно согласие на обработку персональных данных: отметьте вторую галочку.','[data-f="consent"]'); return; }
       errEl.style.display='none';
 
-      var lines=['Заявка на бесплатную диагностику','Имя: '+name,'Телефон: '+phone];
-      if(email) lines.push('Email: '+email);
+      var when=stamp();
+      var lines=['Заявка на бесплатную диагностику','Дата заявки: '+when,'Имя: '+name,'Телефон: '+phone,'Email: '+email].concat(forLines());
       lines.push('');
       lines.push('Результат теста: '+state.correct+' из '+state.total+(state.resultLevel?' ('+state.resultLevel+')':''));
       lines.push('Попытка прохождения теста: '+(state.attempt||1)+'-я');
-      if(promo) lines.push('Согласие на рассылку: да');
-      var msg=lines.join('\n');
-      /* Прямо сейчас CHAT='#' — заглушка до готовности бота в MAX. Когда появится
-         реальная ссылка, формат передачи текста (?text=...) может потребовать
-         проверки под синтаксис диплинков MAX. */
-      window.open(CHAT+(CHAT!=='#'?('?text='+encodeURIComponent(msg)):''),'_blank','noopener');
+      lines.push('');
+      lines.push('Согласие на обработку персональных данных: ДА');
+      lines.push(promo?('Согласие на email-рассылку: ДА, дано '+when+', формулировка: «'+CONSENT_TEXT+'»'):'Согласие на email-рассылку: НЕТ');
+      chatOpen(lines.join('\n'));
       renderLeadSent();
     });
     screen.querySelector('[data-back-result]').addEventListener('click',renderResult);
   }
 
   function renderLeadSent(){
+    var live=(CHAT!=='#');
     screen.innerHTML=
       '<div class="qz-eyebrow">Готово</div>'+
-      '<h3 class="qz-h">Заявка подготовлена</h3>'+
-      '<p class="qz-p">Чат уже открыт — отправьте в нём сообщение, чтобы оно дошло до меня. Я свяжусь с вами, чтобы договориться о времени.</p>'+
+      '<h3 class="qz-h">'+(live?'Заявка подготовлена':'Заявка принята')+'</h3>'+
+      '<p class="qz-p">'+(live?'Чат уже открыт. Отправьте в нём сообщение, чтобы заявка дошла до меня. ':'')+'В ближайшее время я свяжусь с вами, и мы договоримся о времени бесплатной диагностики.</p>'+
       '<button class="btn btn-main" type="button" data-quiz-close>Закрыть</button>';
     screen.querySelectorAll('[data-quiz-close]').forEach(function(b){ b.addEventListener('click',closeQuiz); });
   }
 
-  document.querySelectorAll('[data-quiz-open]').forEach(function(b){b.addEventListener('click',openQuiz);});
+  document.querySelectorAll('[data-quiz-open]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var preset={who:currentSeg()==='adult'?'adult':'kid'};
+      if(b.dataset.quizGrade!==undefined){ preset.who='kid'; preset.grade=+b.dataset.quizGrade; }
+      openQuiz(preset);
+    });
+  });
   document.querySelectorAll('[data-quiz-close]').forEach(function(b){b.addEventListener('click',closeQuiz);});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open')) closeQuiz();});
 })();
@@ -1281,7 +1380,7 @@ setSeg('kid');
 
     function go(next){
       idx=(next+count)%count;
-      var src=base+(idx+1)+'.jpg';
+      var src=base+(idx+1)+'.jpg?v=3';
       var pre=new Image();
       pre.onload=function(){ img.src=src; img.style.opacity=1; };
       img.style.opacity=0.4;
@@ -1302,6 +1401,16 @@ setSeg('kid');
       startX=null;
     },{passive:true});
   });
+})();
+</script>
+<script>
+(function(){
+  var bar=document.querySelector('.sticky-bar'), hb=document.querySelector('.hero-cta .btn'), ap=document.getElementById('apply');
+  if(!bar||!hb||!('IntersectionObserver' in window)) return;
+  var vis={h:true,a:false};
+  function upd(){ bar.classList.toggle('show',!vis.h&&!vis.a); }
+  new IntersectionObserver(function(e){ vis.h=e[0].isIntersecting; upd(); }).observe(hb);
+  if(ap) new IntersectionObserver(function(e){ vis.a=e[0].isIntersecting; upd(); }).observe(ap);
 })();
 </script>
 <script>
