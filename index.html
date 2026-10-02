@@ -17,7 +17,7 @@
 <meta property="og:description" content="Индивидуальные занятия по английскому для школьников и взрослых, онлайн и очно в Биробиджане. Кандидат педагогических наук, преподаю с 1998 года. Диагностика бесплатная.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700;800&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700;800&family=Manrope:wght@500;600;700&family=Lora:wght@500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --canvas:#F3E9DA; --card:#FBF6EE; --teal:#2F7F86; --teal-dark:#1F5A60; --teal-soft:#DDEEEF;
@@ -129,7 +129,7 @@ a{color:inherit}
 .hero-text-top h1{font-size:clamp(36px,3.4vw,58px);margin-bottom:20px}
 .chips{display:flex;gap:8px;flex-wrap:wrap}
 .hero-text-top .tabs{margin-bottom:16px}
-.lead{font-size:18px;line-height:1.45;margin-bottom:18px;max-width:390px}
+.lead{font:500 clamp(24px,2.3vw,31px)/1.35 "Lora",Georgia,"Times New Roman",serif;margin-bottom:18px;max-width:none;color:var(--ink)}
 .btns{display:grid;gap:10px;margin-bottom:14px}
 .quiz-link{display:inline-block;padding:11px 0;color:var(--teal-dark);font-weight:700;font-size:15px;text-underline-offset:4px}
 .price{font-size:14px;color:var(--muted)}
@@ -213,7 +213,7 @@ a{color:inherit}
 
 /* ---------- PRICES ---------- */
 .tabs{display:inline-flex;background:var(--card);border-radius:800px;padding:5px;gap:4px}
-.tabs button{font:600 15px/1 var(--body);border:0;background:transparent;color:var(--teal-dark);padding:15px 20px;border-radius:800px;cursor:pointer}
+.tabs button{flex:1;font:600 15px/1 var(--body);border:0;background:transparent;color:var(--teal-dark);padding:15px 20px;border-radius:800px;cursor:pointer}
 .tabs button.on{background:var(--teal-dark);color:var(--card)}
 .price-c{display:flex;flex-direction:column;gap:10px;min-height:280px}
 .price-c small{font-size:15px;font-weight:600}
@@ -223,10 +223,7 @@ a{color:inherit}
 .price-c.info{gap:14px;align-items:flex-start}
 
 /* ---------- APPLY ---------- */
-.apply{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:56px 48px}
-.apply-deco{position:absolute;z-index:0;pointer-events:none}
-.apply-deco svg{display:block;width:100%;height:100%}
-.apply>*{position:relative;z-index:1}
+.apply{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:56px 48px}
 .apply-soft{grid-column:1 / -1;margin:8px 0 0;font-size:14px;color:#C9DEDF;text-align:center}
 .apply-soft a{color:#fff;text-decoration:underline;text-underline-offset:3px;font-weight:600}
 .apply h2{margin-bottom:16px;font-size:clamp(46px,6vw,84px)}
@@ -237,7 +234,7 @@ input:not([type=checkbox]){background:transparent;border:1.5px solid rgba(251,24
 .consent a{color:#fff;text-underline-offset:3px}
 input::placeholder{color:rgba(251,246,238,.78)}
 .hint{font-size:13px;color:#C9DCDD;margin:2px 8px 6px}
-#apply{margin-bottom:28px}
+#apply{margin-bottom:clamp(64px,8vw,104px)}
 .site-foot{background:var(--teal-dark);color:#E4EEEE;border-radius:var(--r);padding:48px 48px 26px;font-size:15px}
 .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
 .site-foot .logo{color:var(--card);margin-bottom:14px}
@@ -350,7 +347,6 @@ input::placeholder{color:rgba(251,246,238,.78)}
   .sticky-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 14px;background:var(--card);border-top:1.5px dotted var(--teal-dark)}
   .sticky-bar .btn{width:100%}
   .cookie-bar-in{padding:12px 14px}
-  .apply-deco{display:none}
 }
 @media (prefers-reduced-motion:reduce){ *{transition:none!important;scroll-behavior:auto!important} }
 </style>
@@ -604,18 +600,6 @@ input::placeholder{color:rgba(251,246,238,.78)}
   <!-- 6. Заявка -->
   <section id="apply">
     <div class="card dark apply">
-      <div class="apply-deco" style="top:-18px;right:6%;width:92px;height:92px;color:var(--terra);opacity:.22;transform:rotate(14deg)" aria-hidden="true">
-        <svg viewBox="0 0 64 64"><path d="M32 2c1.5 0 2.5 1 2.5 2.5v16l20 12v5l-20-6v14l6 4v4l-9-2-9 2v-4l6-4V31.5l-20 6v-5l20-12v-16C29.5 3 30.5 2 32 2z" fill="currentColor"/></svg>
-      </div>
-      <div class="apply-deco" style="bottom:-14px;right:18%;width:68px;height:68px;color:var(--coral);opacity:.2;transform:rotate(-8deg)" aria-hidden="true">
-        <svg viewBox="0 0 64 64"><rect x="10" y="20" width="44" height="34" rx="7" fill="currentColor"/><rect x="24" y="9" width="16" height="13" rx="4" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="20" cy="58" r="4" fill="currentColor"/><circle cx="44" cy="58" r="4" fill="currentColor"/></svg>
-      </div>
-      <div class="apply-deco" style="top:10%;left:-20px;width:70px;height:70px;color:var(--coral);opacity:.2;transform:rotate(-10deg)" aria-hidden="true">
-        <svg viewBox="0 0 64 64"><path d="M32 4l7.6 16.5L58 23l-13 13.6L48.5 56 32 46.5 15.5 56 19 36.6 6 23l18.4-2.5z" fill="currentColor"/></svg>
-      </div>
-      <div class="apply-deco" style="bottom:-16px;left:4%;width:82px;height:82px;color:var(--terra);opacity:.2;transform:rotate(6deg)" aria-hidden="true">
-        <svg viewBox="0 0 64 64"><path d="M6 14c8-4 18-4 26 2v34c-8-6-18-6-26-2V14z" fill="currentColor"/><path d="M58 14c-8-4-18-4-26 2v34c8-6 18-6 26-2V14z" fill="currentColor"/></svg>
-      </div>
       <h2>Как записаться на <span class="hl">бесплатную</span> диагностику</h2>
       <ol class="how">
         <li>
