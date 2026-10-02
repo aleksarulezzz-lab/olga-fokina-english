@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Как пройти ВПР без нервов · Ольга Фокина</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:wght@700;800&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --canvas:#F3E9DA; --card:#FBF6EE; --teal:#2F7F86; --teal-dark:#1F5A60; --teal-soft:#DDEEEF;
+  --terra:#C8452F; --terra-dark:#B03C28; --coral:#EE8A6C; --ink:#2B3A3D; --muted:#55676a;
+  --display:"Fira Sans Extra Condensed","Oswald","Arial Narrow",sans-serif;
+  --body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --r:40px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--canvas);color:var(--ink);font:500 16px/1.55 var(--body);font-feature-settings:"kern" 1,"liga" 1;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1280px;margin:0 auto;padding:20px 20px 60px}
+section{margin-bottom:64px}
+h1,h2,h3{font-family:var(--display);font-weight:800;color:var(--teal-dark);margin:0;letter-spacing:.02em;line-height:1.02;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--teal-dark);outline-offset:3px;border-radius:10px}
+.dark :focus-visible{outline-color:var(--card)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:800px;font:600 16px/1.2 var(--body);text-align:center;padding:16px 26px;border:1.5px solid transparent;text-decoration:none;cursor:pointer;transition:transform .18s ease,background-color .18s ease}
+.btn:active{transform:scale(.98)}
+.btn-main{background:var(--terra);color:#fff}
+.btn-main:hover{background:var(--terra-dark)}
+.btn-cream{background:var(--card);color:var(--teal-dark)}
+.btn-cream:hover{background:#fff}
+.tag{display:inline-block;background:var(--teal-soft);color:var(--teal-dark);font:600 13px/1 var(--body);padding:7px 12px;border-radius:800px}
+.card{background:var(--card);border-radius:var(--r);padding:40px}
+.ghost{display:inline-block;padding:11px 0;color:var(--teal-dark);font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-thickness:1.5px}
+.dark{background:var(--teal-dark);color:#E4EEEE}
+.dark h2{color:var(--card)}
+.draft{font:600 13px/1.3 var(--body);color:var(--muted);margin:0 0 12px}
+
+/* topbar — как на «Полезном» */
+.topbar{display:flex;align-items:center;gap:2px;background:var(--card);border-radius:800px;padding:7px 7px 7px 20px;margin-bottom:32px}
+.logo{font:800 20px/1 var(--display);color:var(--teal-dark);letter-spacing:.03em;margin-right:auto;display:flex;align-items:center;gap:9px;text-decoration:none}
+.topbar .logo{margin-right:0}
+.topbar-links{display:flex;flex:1;justify-content:space-evenly;align-items:center}
+.logo i{width:20px;height:20px;border-radius:50%;flex:none;background:url(olga-face.jpg) center/cover no-repeat,var(--teal)}
+.topbar .l{padding:9px 12px;border-radius:800px;text-decoration:none;font-size:15px}
+.topbar .l:hover{background:var(--canvas)}
+.topbar .sep{width:0;height:22px;border-left:1.5px dotted var(--teal-dark);margin:0 8px}
+.topbar .btn{padding:12px 20px;font-size:15px}
+@media (max-width:760px){ .topbar .l{display:none} .topbar .sep{display:none} }
+
+.back{display:inline-block;margin-bottom:20px;font-size:14px;font-weight:700;color:var(--teal-dark);text-decoration:underline;text-underline-offset:3px}
+
+/* заголовок статьи */
+.art-head{max-width:800px;margin-bottom:44px}
+.art-head h1{font-size:clamp(36px,5vw,56px);margin:16px 0 18px}
+.art-head .lede{font-size:19px;line-height:1.55;max-width:62ch}
+.art-meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-top:18px;font-size:13px;color:var(--muted)}
+
+/* тело статьи */
+.article{max-width:760px}
+.article > p{font-size:17px;line-height:1.65;margin-bottom:22px;max-width:68ch}
+.method{display:grid;grid-template-columns:64px 1fr;gap:18px;padding:26px 0}
+.method+.method{border-top:1.5px dotted var(--teal-soft)}
+.method b{font:800 44px/1 var(--display);color:var(--teal)}
+.method h3{font-size:24px;margin-bottom:8px}
+.method p{font-size:16px;line-height:1.6;margin-bottom:10px;max-width:60ch}
+.method .tip{background:var(--card);border-radius:18px;padding:14px 18px;font-size:15px;line-height:1.5}
+.method .tip b{font:700 15px/1 var(--body);color:var(--teal-dark);display:inline}
+.article h2.mid{font-size:clamp(26px,3vw,34px);margin:40px 0 16px}
+.article h2.mid:first-of-type{margin-top:8px}
+.article ul{margin:0 0 26px;padding-left:22px;max-width:66ch}
+.article li{font-size:16px;line-height:1.6;margin-bottom:10px}
+.callout{background:var(--teal-soft);border-radius:20px;padding:20px 24px;font-size:16px;line-height:1.6;margin:0 0 26px;max-width:66ch}
+.callout b{color:var(--teal-dark)}
+
+.sources{margin-top:40px;padding-top:24px;border-top:1.5px dotted var(--teal-soft);font-size:14px;color:var(--muted);max-width:68ch}
+.sources h4{font:700 14px/1 var(--body);color:var(--teal-dark);margin-bottom:10px;text-transform:uppercase;letter-spacing:.04em}
+.sources ul{margin:0;padding-left:18px}
+.sources li{margin-bottom:6px}
+
+/* блок квиза + запись */
+.next{margin-top:56px}
+.next h2{color:var(--card);font-size:clamp(26px,3.2vw,36px);margin-bottom:12px;max-width:20ch}
+.next p{color:#C9DCDD;font-size:15px;margin-bottom:20px;max-width:48ch}
+.next .row{display:flex;gap:12px;flex-wrap:wrap}
+
+.site-foot{background:var(--teal-dark);color:#E4EEEE;border-radius:var(--r);padding:48px 48px 26px;font-size:15px;margin-top:56px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
+.site-foot .logo{color:var(--card);margin-bottom:14px}
+.site-foot p{margin:0 0 8px;max-width:38ch}
+.foot-h{font-weight:700;color:var(--card);margin-bottom:10px!important}
+.foot-links{list-style:none;margin:0;padding:0}
+.foot-links a{display:inline-block;padding:9px 0;color:#E4EEEE;text-decoration:underline;text-decoration-color:rgba(228,238,238,.45);text-underline-offset:4px}
+.foot-links a:hover{color:#fff;text-decoration-color:#fff}
+.soc{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 12px}
+.soc a{width:48px;height:48px;border-radius:50%;border:1.5px solid rgba(251,246,238,.7);display:grid;place-items:center;color:var(--card);text-decoration:none;font:700 13px/1 var(--body)}
+.soc a:hover{background:rgba(251,246,238,.12)}
+.soc svg{width:22px;height:22px}
+.foot-note{font-size:13px;color:#C9DCDD}
+.foot-line{border-top:1.5px dotted rgba(251,246,238,.5);margin:30px 0 0!important;padding-top:18px;font-size:13px;line-height:1.5;color:#C9DCDD;max-width:none!important}
+.credit{margin:16px 0 0!important;text-align:center;max-width:none!important;font:400 11px/1.4 system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.03em}
+.credit a{color:#A9C4C6;text-decoration:underline dotted;text-decoration-thickness:1px;text-underline-offset:3px;text-decoration-color:rgba(169,196,198,.4)}
+.credit a:hover{color:#fff}
+
+.cookie-bar{position:sticky;top:0;z-index:40;background:var(--card);border-bottom:1.5px solid var(--teal-soft);box-shadow:0 2px 10px rgba(31,90,96,.08)}
+.cookie-bar[hidden]{display:none}
+.cookie-bar-in{max-width:1280px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:13.5px;line-height:1.5}
+.cookie-bar p{margin:0;flex:1 1 260px}
+.cookie-bar a{color:var(--teal-dark);text-decoration:underline;text-underline-offset:3px}
+.cookie-bar .btn{padding:10px 18px;font-size:13.5px;flex:none}
+
+@media (max-width:900px){ .foot-grid{grid-template-columns:1fr} .site-foot{padding:32px 24px 22px} .card{padding:28px} }
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;scroll-behavior:auto!important} }
+</style>
+</head>
+<body>
+<div class="cookie-bar" id="cookieBar" role="dialog" aria-label="Уведомление об использовании файлов cookie" hidden>
+  <div class="cookie-bar-in">
+    <p>Сайт использует файлы cookie для аналитики и удобной работы. Подробности в <a href="#">Политике в отношении файлов cookie</a>.</p>
+    <button class="btn btn-main" id="cookieOk" type="button">Понятно</button>
+  </div>
+</div>
+
+<div class="wrap">
+  <p class="draft">Черновик статьи: факты по ВПР проверены по ФИОКО и другим источникам ниже, советы для родителей опираются на рекомендации школьных психологов.</p>
+
+  <nav class="topbar" aria-label="Главное меню">
+    <a class="logo" href="index.html#top"><i></i>Ольга Фокина</a>
+    <div class="topbar-links">
+      <a class="l" href="index.html#about">Обо мне</a>
+      <a class="l" href="index.html#prices">Цены</a>
+      <a class="l" href="index.html#reviews">Отзывы</a>
+      <a class="l" href="poleznoe.html">Полезное</a>
+      <a class="l" href="diplomy.html">Дипломы</a>
+    </div>
+    <span class="sep"></span>
+    <a class="btn btn-main" data-chat href="https://t.me/Olga_English_4U" target="_blank" rel="noopener noreferrer">Записаться</a>
+  </nav>
+
+  <a class="back" href="poleznoe.html">← Полезное</a>
+
+  <header class="art-head">
+    <span class="tag">Родителям · ВПР</span>
+    <h1>Как пройти ВПР без нервов</h1>
+    <p class="lede">ВПР по английскому часто пугает родителей больше, чем самих детей. Расскажу, что проверяет эта работа на самом деле и что реально помогает ребёнку пройти её спокойно.</p>
+    <div class="art-meta">
+      <span>Ольга Анатольевна Фокина</span><span>·</span><span>кандидат педагогических наук</span>
+    </div>
+  </header>
+
+  <article class="article">
+    <h2 class="mid">Что такое ВПР по английскому</h2>
+    <p>Всероссийские проверочные работы проводятся каждый год, обычно с середины апреля по середину мая. Английский входит в список предметов ВПР для 4, 5, 6, 7, 8 и 10 классов. Не каждая школа и не каждый год выбирает именно его: в 4 классе предмет назначает система, в 5–8 и 10 классах решает школа.</p>
+    <p>Задания почти одинаковы по составу во всех классах: аудирование, чтение, грамматика и письмо. В 4 классе вместо личного письма дети заполняют анкету. В 7 классе добавляется устная часть: чтение текста вслух и короткий монолог. На работу обычно даётся 45 минут, в 10 классе 90 минут. Максимальный балл в большинстве классов 25, в 6 классе 20.</p>
+
+    <h2 class="mid">Главное, что стоит знать</h2>
+    <div class="callout"><b>Результаты ВПР не влияют</b> на четвертные и годовые оценки и не мешают переводу в следующий класс. Это диагностика: она показывает, что ребёнок усвоил за год, а не итоговый экзамен вроде ОГЭ или ЕГЭ.</div>
+
+    <h2 class="mid">Что реально помогает</h2>
+    <ul>
+      <li>Следите за режимом дня: сном, питанием, временем за телефоном в дни перед работой.</li>
+      <li>Организуйте ребёнку удобное рабочее место с хорошим освещением.</li>
+      <li>Покажите, как внимательно читать задание и пропускать непонятное, чтобы вернуться к нему позже.</li>
+      <li>Объясните, зачем нужен черновик и как проверить работу перед сдачей.</li>
+      <li>Напомните, что на сложные темы можно спросить учителя заранее.</li>
+      <li>Спокойно обсуждайте волнение ребёнка, без критики.</li>
+      <li>Показывайте, что любите его независимо от результата.</li>
+    </ul>
+
+    <h2 class="mid">Чего лучше избежать</h2>
+    <ul>
+      <li>Не сравнивайте ребёнка с другими детьми.</li>
+      <li>Не покупайте сборники для дополнительной подготовки: школьной программы достаточно, а лишние тренировки только добавляют тревоги.</li>
+      <li>Не подчёркивайте важность ВПР больше, чем она есть на самом деле.</li>
+    </ul>
+
+    <h2 class="mid">Как я готовлю к ВПР на занятиях</h2>
+    <p>На занятиях мы заранее разбираем формат заданий, чтобы к дню работы ребёнок точно знал, чего ждать. Тренируем аудирование и чтение в спокойном темпе, без секундомера, и обсуждаем, как оформить письмо или анкету. Моя задача снять неизвестность: когда формат знаком, тревоги становится меньше.</p>
+
+    <div class="sources">
+      <h4>Источники</h4>
+      <ul>
+        <li>ФИОКО: официальные демоверсии и спецификации ВПР по английскому языку по классам.</li>
+        <li>РБК Life: расписание ВПР 2025–2026 и порядок распределения предметов по классам.</li>
+        <li>«Семья и школа»: рекомендации психологов по подготовке ребёнка к ВПР.</li>
+      </ul>
+    </div>
+  </article>
+
+  <section>
+    <div class="card dark next">
+      <h2>Проверьте уровень ребёнка перед ВПР</h2>
+      <p>Короткий тест покажет, что уже получается и что стоит подтянуть. На бесплатной диагностике обсудим срок до работы и составим план подготовки.</p>
+      <div class="row">
+        <a class="btn btn-cream" href="index.html#quiz">Проверить уровень знания языка</a>
+        <a class="btn btn-main" data-chat href="https://t.me/Olga_English_4U" target="_blank" rel="noopener noreferrer">Записаться на бесплатную диагностику</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-foot">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="index.html#top"><i></i>Ольга Фокина</a>
+        <p>Кандидат педагогических наук. Репетитор по английскому языку: школьники, подготовка к ВПР, взрослые.</p>
+        <p>Биробиджан, Пионерская, 77 · онлайн из любого региона</p>
+      </div>
+      <div>
+        <p class="foot-h">Документы</p>
+        <ul class="foot-links">
+          <li><a href="#">Политика обработки персональных данных</a></li>
+          <li><a href="#">Согласие на обработку персональных данных</a></li>
+          <li><a href="#">Политика в отношении файлов cookie</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-h">Мои соцсети</p>
+        <div class="soc">
+          <a href="https://t.me/english_OlgaFokina" target="_blank" rel="noopener noreferrer" aria-label="Мой Telegram-канал"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></a>
+          <a href="#" aria-label="MAX (ссылка будет добавлена)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4c4.97 0 9 3.28 9 7.33 0 4.04-4.03 7.32-9 7.32-.9 0-1.77-.1-2.6-.3-1.02.9-2.2 1.5-3.4 1.7.5-.9.8-1.86.86-2.77C5.02 15.86 3 13.8 3 11.33 3 7.28 7.03 4 12 4z"/></svg></a>
+          <a href="#" aria-label="ВКонтакте (ссылка будет добавлена)"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 5h3.2L12 15l4.8-10H20l-6.6 14h-2.8L4 5z"/></svg></a>
+        </div>
+        <p class="foot-note">[Ссылки на MAX и VK добавим позже]</p>
+      </div>
+    </div>
+    <p class="foot-line">Оператор персональных данных: [ФИО или ИП, ИНН, e-mail для обращений: уточним]. Вопросы об обработке данных и отзыв согласия: [e-mail: уточним].</p>
+    <p class="credit"><a href="https://max.ru/join/0_zZrUJ8Q4CBYtyFjYhY45SIQfuD3PiCUmaFH7_KmWQ" target="_blank" rel="noopener noreferrer">Сайт разработан студией Александры Рулевой</a></p>
+  </footer>
+</div>
+
+<script>
+var CHAT='https://t.me/Olga_English_4U';
+var MSG='Здравствуйте! Прочитал(а) памятку про ВПР, хочу записаться на бесплатную диагностику.';
+document.querySelectorAll('[data-chat]').forEach(function(a){a.href=CHAT+'?text='+encodeURIComponent(MSG)});
+
+(function(){
+  var bar=document.getElementById('cookieBar'), ok=document.getElementById('cookieOk');
+  var seen=false;
+  try{ seen=localStorage.getItem('cookieOk')==='1'; }catch(e){}
+  if(!seen){ bar.hidden=false; }
+  ok.addEventListener('click',function(){
+    bar.hidden=true;
+    try{ localStorage.setItem('cookieOk','1'); }catch(e){}
+  });
+})();
+</script>
+</body>
+</html>
